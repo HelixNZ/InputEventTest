@@ -2,37 +2,31 @@
 #ifndef __INPUT_MANAGER_H__
 #define __INPUT_MANAGER_H__
 
-//Library Includes
-#include <vector>
-
 //Local Includes
-#include "inputevent.h"
+#include "eventemitter.hpp"
 
 //Prototypes
-class IInputEvents;
-class CInputManager
+class IInputEventListener;
+class CInputManager: public CEventEmitter<IInputEventListener>
 {
-public:
-	static CInputManager& GetInstance();
-	static void DestroyInstance();
-
-	static bool IsValid();
-
-
-	void Subscribe(IInputEvents* _pWho);
-	void Unsubscribe(IInputEvents* _pWho);
-
-	void TestKeyPress(char k);
-	void TestKeyRelease(char k);
-
+	//Member Functions
 private:
 	CInputManager();
 	~CInputManager();
 
+public:
+	static CInputManager& GetInstance();
+	static void DestroyInstance();
+	static bool IsValid();
+
+	void TestKeyPress(char k);
+	void TestKeyRelease(char k);
+
+	void Process();
+
+	//Member Variables
+protected:
 	static CInputManager* sm_pThis;
-	std::vector<IInputEvents*> m_pWatchers;
 };
-
-
 
 #endif //__INPUT_MANAGER_H__

@@ -22,7 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{a135141f-6df7-4837-a5ca-a5983a697d0e}</ProjectGuid>
-    <RootNamespace>EventLambda</RootNamespace>
+    <RootNamespace>InputEventTest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>InputEventTest</ProjectName>
   </PropertyGroup>
@@ -145,8 +145,11 @@
     <ClCompile Include="inputmanager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="eventemitter.hpp" />
     <ClInclude Include="inputevent.h" />
     <ClInclude Include="inputmanager.h" />
+    <ClInclude Include="keylistener.hpp" />
+    <ClInclude Include="player.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
